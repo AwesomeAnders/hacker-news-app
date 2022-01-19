@@ -18,7 +18,7 @@ const App: FC = () => {
       { isLoading
         ? (<div style={{ display: 'flex', justifyContent: 'center' }}><p>Loading....</p></div>)
         : (<ul className="cards">
-        {storyData.map((item, index) => {
+        {storyData.sort((a, b) => a.item.score - b.item.score).map((item, index) => {
           return <Story user={item.user} key={index} item={item.item}>
           </Story>
         })}
